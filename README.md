@@ -18,11 +18,14 @@ Official Repository of the paper: [Trajectory Consistency Distillation](https://
 
 TCD, inspired by [Consistency Models](https://arxiv.org/abs/2303.01469), is a novel distillation technology that enables the distillation of knowledge from pre-trained diffusion models into a few-step sampler. In this repository, we release the inference code and our model named TCD-SDXL, which is distilled from [SDXL Base 1.0](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0). We provide the LoRA checkpoint in this 🔥[repository](https://huggingface.co/h1t/TCD-SDXL-LoRA).
 
+![](./assets/teaser.jpeg)
+
 ⭐ TCD has following advantages:
 
-- `High-Quality with Few-Step`: TCD significantly surpasses the previous state-of-the-art few-step text-to-image model [LCM](https://github.com/luosiallen/latent-consistency-model/tree/main) in terms of image quality. Notably, LCM experiences a notable decline in quality at high NFEs. In contrast, _**TCD maintains superior generative quality at high NFEs, even exceeding the performance of DPM-Solver++(2S) with origin SDXL**_. 
-![](./assets/teaser.jpeg)
-<!-- We observed that the images generated with 8 steps by TCD-SDXL are already highly impressive, even outperforming the original SDXL 50-steps generation results. -->
+- `Flexible NFEs`: For TCD, the NFEs can be varied at will (compared with [SDXL Turbo](https://huggingface.co/stabilityai/sdxl-turbo)), without adversely affecting the quality of the results (compared with [LCM](https://github.com/luosiallen/latent-consistency-model)), where LCM experiences a notable decline in quality at high NFEs. 
+- `Better than Teacher`: TCD maintains superior generative quality at high NFEs, even exceeding the performance of DPM-Solver++(2S) with origin SDXL. It is worth noting that there is no additional discriminator or LPIPS supervision included during training.
+- `Freely Change the Detailing`: During inference, the level of detail in the image can be simply modified by adjusing one hyper-parameter gamma. This option does not require the introduction of any additional parameters.
+![](./assets/tcd_diff_gamma.png)
 - `Versatility`: Integrated with LoRA technology, TCD can be directly applied to various models (including the custom Community Models, styled LoRA, ControlNet, IP-Adapter) that share the same backbone, as demonstrated in the [Usage](#usage-anchor).
 ![](./assets/versatility.png)
 - `Avoiding Mode Collapse`: TCD achieves few-step generation without the need for adversarial training, thus circumventing mode collapse caused by the GAN objective. 
@@ -369,11 +372,13 @@ python gradio_app.py
 
 ## Citation
 ```bibtex
-@article{zheng2024trajectory,
-  title = {Trajectory Consistency Distillation},
-  author = {Zheng, Jianbin and Hu, Minghui and Fan, Zhongyi and Wang, Chaoyue and Ding, Changxing and Tao, Dacheng and Cham, Tat-Jen},
-  journal = {arXiv},
-  year = {2024},
+@misc{zheng2024trajectory,
+      title={Trajectory Consistency Distillation}, 
+      author={Jianbin Zheng and Minghui Hu and Zhongyi Fan and Chaoyue Wang and Changxing Ding and Dacheng Tao and Tat-Jen Cham},
+      year={2024},
+      eprint={2402.19159},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
 
