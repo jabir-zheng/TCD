@@ -6,6 +6,17 @@ from diffusers import StableDiffusionXLPipeline
 
 from scheduling_tcd import TCDScheduler
 
+css = """
+h1 {
+    text-align: center;
+    display:block;
+}
+h3 {
+    text-align: center;
+    display:block;
+}
+"""
+
 device = "cuda"
 base_model_id = "stabilityai/stable-diffusion-xl-base-1.0"
 tcd_lora_id = "h1t/TCD-SDXL-LoRA"
@@ -36,8 +47,8 @@ def inference(prompt, num_inference_steps=4, seed=-1, eta=0.3):
 
 
 # Define style
-title = "<h1 style='text-align: center'>Trajectory Consistency Distillation</h1>"
-description = "Official 🤗 Gradio demo for Trajectory Consistency Distillation"
+title = "<h1>Trajectory Consistency Distillation</h1>"
+description = "<h3>Official 🤗 Gradio demo for Trajectory Consistency Distillation</h3>"
 article = "<p style='text-align: center'><a href='https://arxiv.org/abs/' target='_blank'>Trajectory Consistency Distillation</a> | <a href='https://github.com/jabir-zheng/TCD' target='_blank'>Github Repo</a></p>"
 
 
@@ -63,7 +74,7 @@ examples = [
 
 outputs = gr.Label(label='Generated Images')
 
-with gr.Blocks() as demo:
+with gr.Blocks(css=css) as demo:
     gr.Markdown(f'# {title}\n### {description}')
     
     with gr.Row():
@@ -77,7 +88,7 @@ with gr.Blocks() as demo:
                 step=1,
             )
             
-            with gr.Accordion("Advanced Options", visible=False):
+            with gr.Accordion("Advanced Options", open=False):
                 with gr.Row():
                     with gr.Column():
                         seed = gr.Number(label="Random Seed", value=-1)
@@ -99,7 +110,7 @@ with gr.Blocks() as demo:
                 label="Quick Examples",
                 examples=examples,
                 inputs=[prompt, num_inference_steps, 0, 0.3],
-                outputs="outputs", 
+                outputs="outputs",
                 cache_examples=False
             )
 

@@ -1,16 +1,16 @@
 # Trajectory Consistency Distillation
 
-[![Arxiv](https://img.shields.io/badge/arXiv-2211.15744-b31b1b)]()
+[![Arxiv](https://img.shields.io/badge/arXiv-2402.19159-b31b1b)](https://arxiv.org/abs/2402.19159)
 [![Project page](https://img.shields.io/badge/Web-Project%20Page-green)](https://mhh0318.github.io/tcd)
 [![Hugging Face Model](https://img.shields.io/badge/%F0%9F%A4%97HuggingFace-Model-purple)](https://huggingface.co/h1t/TCD-SDXL-LoRA)
-[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97HuggingFace-Space-blue)](https://huggingface.co/spaces/h1t/TCD-SDXL-LoRA)
+[![Hugging Face Space](https://img.shields.io/badge/%F0%9F%A4%97HuggingFace-Space-blue)](https://huggingface.co/spaces/h1t/TCD)
 
-Official Repository of the paper: [Trajectory Consistency Distillation]()
+Official Repository of the paper: [Trajectory Consistency Distillation](https://arxiv.org/abs/2402.19159)
 
 ![](./assets/teaser_fig.png)
 
 ## 📣 News
-- (🔥New) 2024/2/29 We provided a demo of TCD on 🤗 Hugging Face Space. Try it out [here](https://huggingface.co/spaces/h1t/TCD-SDXL-LoRA).
+- (🔥New) 2024/2/29 We provided a demo of TCD on 🤗 Hugging Face Space. Try it out [here](https://huggingface.co/spaces/h1t/TCD).
 - (🔥New) 2024/2/29 We released our model [TCD-SDXL-Lora](https://huggingface.co/h1t/TCD-SDXL-LoRA) in 🤗 Hugging Face.
 - (🔥New) 2024/2/29 TCD is now integrated into the 🧨 Diffusers library. Please refer to the [Usage](#usage-anchor) for more information.
 
@@ -29,7 +29,7 @@ TCD, inspired by [Consistency Models](https://arxiv.org/abs/2303.01469), is a no
 In contrast to the concurrent work [SDXL-Lightning](https://huggingface.co/ByteDance/SDXL-Lightning), which relies on Adversarial Diffusion Distillation, TCD can synthesize results that are more realistic and slightly more diverse, without the presence of "Janus" artifacts.
 ![](./assets/compare_sdxl_lightning.png)
 
-For more information, please refer to our paper [Trajectory Consistency Distillation]().
+For more information, please refer to our paper [Trajectory Consistency Distillation](https://arxiv.org/abs/2402.19159).
 
 <a id="usage-anchor"></a>
 
@@ -359,7 +359,7 @@ grid_image = make_image_grid([ref_image, image], rows=1, cols=2)
 ### Local Gradio Demo
 Install the `gradio` library first,
 ```bash
-pip install gradio==3.50.2
+pip install gradio
 ```
 then local gradio demo can be launched by:
 ```py
