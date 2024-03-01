@@ -1,4 +1,4 @@
-# Copyright 2023 Stanford University Team and The HuggingFace Team. All rights reserved.
+# Copyright 2024 Stanford University Team and The HuggingFace Team. All rights reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@ from typing import List, Optional, Tuple, Union
 import numpy as np
 import torch
 
-from diffusers.configuration_utils import ConfigMixin, register_to_config
-from diffusers.utils import BaseOutput, logging
-from diffusers.utils.torch_utils import randn_tensor
-from diffusers.schedulers.scheduling_utils import SchedulerMixin
+from ..configuration_utils import ConfigMixin, register_to_config
+from ..schedulers.scheduling_utils import SchedulerMixin
+from ..utils import BaseOutput, logging
+from ..utils.torch_utils import randn_tensor
 
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
@@ -132,7 +132,7 @@ def rescale_zero_terminal_snr(betas: torch.FloatTensor) -> torch.FloatTensor:
 
 class TCDScheduler(SchedulerMixin, ConfigMixin):
     """
-    `TCDScheduler` incorporates the `Strategic Stochastic Sampling` introduced by the paper `Trajectory Consistency Distillation`, 
+    `TCDScheduler` incorporates the `Strategic Stochastic Sampling` introduced by the paper `Trajectory Consistency Distillation`,
     extending the original Multistep Consistency Sampling to enable unrestricted trajectory traversal.
 
     This model inherits from [`SchedulerMixin`] and [`ConfigMixin`]. [`~ConfigMixin`] takes care of storing all config
@@ -370,7 +370,7 @@ class TCDScheduler(SchedulerMixin, ConfigMixin):
         original_steps = (
             original_inference_steps if original_inference_steps is not None else self.config.original_inference_steps
         )
-        
+
         if original_steps is not None:
             if original_steps > self.config.num_train_timesteps:
                 raise ValueError(
@@ -495,7 +495,7 @@ class TCDScheduler(SchedulerMixin, ConfigMixin):
         model_output: torch.FloatTensor,
         timestep: int,
         sample: torch.FloatTensor,
-        eta: float,
+        eta: float = 0.3,
         generator: Optional[torch.Generator] = None,
         return_dict: bool = True,
     ) -> Union[TCDSchedulerOutput, Tuple]:
@@ -511,7 +511,7 @@ class TCDScheduler(SchedulerMixin, ConfigMixin):
             sample (`torch.FloatTensor`):
                 A current instance of a sample created by the diffusion process.
             eta (`float`):
-                A stochastic parameter (referred to as `gamma` in the paper) used to control the stochasticity in every step. 
+                A stochastic parameter (referred to as `gamma` in the paper) used to control the stochasticity in every step.
                 When eta = 0, it represents deterministic sampling, whereas eta = 1 indicates full stochastic sampling.
             generator (`torch.Generator`, *optional*):
                 A random number generator.
@@ -530,6 +530,8 @@ class TCDScheduler(SchedulerMixin, ConfigMixin):
         if self.step_index is None:
             self._init_step_index(timestep)
 
+        assert 0 <= eta <= 1.0, "gamma must be less than or equal to 1.0"
+
         # 1. get previous step value
         prev_step_index = self.step_index + 1
         if prev_step_index < len(self.timesteps):
@@ -538,22 +540,21 @@ class TCDScheduler(SchedulerMixin, ConfigMixin):
             prev_timestep = torch.tensor(0)
 
         timestep_s = torch.floor((1 - eta) * prev_timestep).to(dtype=torch.long)
-        
+
         # 2. compute alphas, betas
         alpha_prod_t = self.alphas_cumprod[timestep]
         beta_prod_t = 1 - alpha_prod_t
 
         alpha_prod_t_prev = self.alphas_cumprod[prev_timestep] if prev_timestep >= 0 else self.final_alpha_cumprod
-        beta_prod_t_prev = 1 - alpha_prod_t_prev
-        
-        alpha_prod_s = self.alphas_cumprod[timestep_s] if timestep_s >= 0 else self.final_alpha_cumprod
+
+        alpha_prod_s = self.alphas_cumprod[timestep_s]
         beta_prod_s = 1 - alpha_prod_s
 
         # 3. Compute the predicted noised sample x_s based on the model parameterization
         if self.config.prediction_type == "epsilon":  # noise-prediction
             pred_original_sample = (sample - beta_prod_t.sqrt() * model_output) / alpha_prod_t.sqrt()
             pred_epsilon = model_output
-            pred_noised_sample = alpha_prod_s.sqrt() * pred_original_sample + beta_prod_s.sqrt() * pred_epsilon 
+            pred_noised_sample = alpha_prod_s.sqrt() * pred_original_sample + beta_prod_s.sqrt() * pred_epsilon
         elif self.config.prediction_type == "sample":  # x-prediction
             pred_original_sample = model_output
             pred_epsilon = (sample - alpha_prod_t ** (0.5) * pred_original_sample) / beta_prod_t ** (0.5)
@@ -567,18 +568,20 @@ class TCDScheduler(SchedulerMixin, ConfigMixin):
                 f"prediction_type given as {self.config.prediction_type} must be one of `epsilon`, `sample` or"
                 " `v_prediction` for `TCDScheduler`."
             )
-            
+
         # 4. Sample and inject noise z ~ N(0, I) for MultiStep Inference
         # Noise is not used on the final timestep of the timestep schedule.
         # This also means that noise is not used for one-step sampling.
-        # Eta (referred to as "gamma" in the paper) was introduced to control the stochasticity in every step. 
+        # Eta (referred to as "gamma" in the paper) was introduced to control the stochasticity in every step.
         # When eta = 0, it represents deterministic sampling, whereas eta = 1 indicates full stochastic sampling.
         if eta > 0:
             if self.step_index != self.num_inference_steps - 1:
                 noise = randn_tensor(
                     model_output.shape, generator=generator, device=model_output.device, dtype=pred_noised_sample.dtype
                 )
-                prev_sample = (alpha_prod_t_prev / alpha_prod_s).sqrt() * pred_noised_sample + (1 - alpha_prod_t_prev / alpha_prod_s).sqrt() * noise
+                prev_sample = (alpha_prod_t_prev / alpha_prod_s).sqrt() * pred_noised_sample + (
+                    1 - alpha_prod_t_prev / alpha_prod_s
+                ).sqrt() * noise
             else:
                 prev_sample = pred_noised_sample
         else:
