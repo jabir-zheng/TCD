@@ -22,10 +22,10 @@ from typing import List, Optional, Tuple, Union
 import numpy as np
 import torch
 
-from ..configuration_utils import ConfigMixin, register_to_config
-from ..schedulers.scheduling_utils import SchedulerMixin
-from ..utils import BaseOutput, logging
-from ..utils.torch_utils import randn_tensor
+from diffusers.configuration_utils import ConfigMixin, register_to_config
+from diffusers.schedulers.scheduling_utils import SchedulerMixin
+from diffusers.utils import BaseOutput, logging
+from diffusers.utils.torch_utils import randn_tensor
 
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
