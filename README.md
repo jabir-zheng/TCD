@@ -370,6 +370,11 @@ python gradio_app.py
 ```
 ![](./assets/gradio_demo.png)
 
+### Colab Demo
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jabir-zheng/TCD/blob/main/colab_demo_t2i.ipynb)
+
+We provided a colob demo for Text-to-Image generation with TCD-LoRA.
+
 ## Citation
 ```bibtex
 @misc{zheng2024trajectory,
