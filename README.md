@@ -10,6 +10,7 @@ Official Repository of the paper: [Trajectory Consistency Distillation](https://
 ![](./assets/teaser_fig.png)
 
 ## 📣 News
+- (🔥New) 2024/3/11 We released [TCD-SD15-LoRA](https://huggingface.co/h1t/TCD-SD15-LoRA) for SDv1.5, and [TCD-SD21-base-LoRA](https://huggingface.co/h1t/TCD-SD21-base-LoRA) for SDv2.1-base.
 - (🔥New) 2024/2/29 We provided a demo of TCD on 🤗 Hugging Face Space. Try it out [here](https://huggingface.co/spaces/h1t/TCD).
 - (🔥New) 2024/2/29 We released our model [TCD-SDXL-Lora](https://huggingface.co/h1t/TCD-SDXL-LoRA) in 🤗 Hugging Face.
 - (🔥New) 2024/2/29 TCD is now integrated into the 🧨 Diffusers library. Please refer to the [Usage](#usage-anchor) for more information.
