@@ -9,6 +9,33 @@ Official Repository of the paper: [Trajectory Consistency Distillation](https://
 
 ![](./assets/teaser_fig.png)
 
+## A Solemn Statement Regarding the Plagiarism Allegations.
+
+We regret to hear about the serious accusations from the CTM team.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We sadly found out our CTM paper (ICLR24) was plagiarized by TCD! It&#39;s unbelievable😢—they not only stole our idea of trajectory consistency but also comitted &quot;verbatim plagiarism,&quot; literally copying our proofs word for word! Please help me spread this. <a href="https://t.co/aR6pRjhj5X">pic.twitter.com/aR6pRjhj5X</a></p>&mdash; Dongjun Kim (@gimdong58085414) <a href="https://twitter.com/gimdong58085414/status/1772350285270188069?ref_src=twsrc%5Etfw">March 25, 2024</a></blockquote>
+
+Before this post, we already have several rounds of communication with CTM's authors. 
+We shall proceed to elucidate the situation here. 
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We regret to hear about the serious accusations from the CTM team <a href="https://twitter.com/gimdong58085414?ref_src=twsrc%5Etfw">@gimdong58085414</a>. I shall proceed to elucidate the situation and make an archive here. We already have several rounds of communication with CTM&#39;s authors. <a href="https://t.co/BKn3w1jXuh">https://t.co/BKn3w1jXuh</a></p>&mdash; Michael (@Merci0318) <a href="https://twitter.com/Merci0318/status/1772502247563559014?ref_src=twsrc%5Etfw">March 26, 2024</a></blockquote> 
+
+1. In our first arXiv pre-print, we have indicated "mainly borrows the proof from CTM" and have never intended to claim credits. As we have mentioned in our email, we would like to extend a formal apology to the CTM authors for the clearly inadequate level of referencing in our paper. 
+
+2. Our entire sampling algorithm and the whole proof of Theorem 4 are predicated upon DPMSolver and DEIS and we also provide the proof in the email.
+   
+3. CTM and TCD are different from motivation, method to experiments. The experimental results also cannot be obtained from any type of CTM algorithm.
+   
+   3.1 Here we provide a simple method to check: use our sampler here to sample the checkpoint [CTM released](https://github.com/sony/ctm), or vice versa.
+   
+   3.2 [CTM](https://github.com/sony/ctm) also provided training script. We welcome anyone to reproduce the experiments on SDXL based on CTM algorithm.
+
+We believe the assertion of plagiarism is not only severe but also detrimental to the academic integrity of the involved parties. 
+We earnestly hope that everyone involved gains a more comprehensive understanding of this matter.
+
+All related docs can be found [here](https://drive.google.com/file/d/19c1QMfOMgp3McR4FCBk4pjdf22avyp8X/view).
+
+
 ## 📣 News
 - (🔥New) 2024/3/18 We have integrated the official [TCDScheduler](https://github.com/huggingface/diffusers/blob/main/src/diffusers/schedulers/scheduling_tcd.py) into the 🧨 Diffusers library! See the official documentation [here](https://huggingface.co/docs/diffusers/using-diffusers/inference_with_tcd_lora). Thanks for the Diffusers team!
 - (🔥New) 2024/3/11 We released [TCD-SD15-LoRA](https://huggingface.co/h1t/TCD-SD15-LoRA) for SDv1.5, and [TCD-SD21-base-LoRA](https://huggingface.co/h1t/TCD-SD21-base-LoRA) for SDv2.1-base.
