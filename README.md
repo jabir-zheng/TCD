@@ -22,7 +22,7 @@ We shall proceed to elucidate the situation here.
 
 1. In our first arXiv pre-print, we have indicated "mainly borrows the proof from CTM" and have never intended to claim credits. As we have mentioned in our email, we would like to extend a formal apology to the CTM authors for the clearly inadequate level of referencing in our paper. 
 
-2. Our entire sampling algorithm and the whole proof of Theorem 4 are predicated upon DPMSolver and DEIS and we also provide the proof in the email.
+2. Furthermore, the sections under accusation bear no relation to the core contributions of TCD. The represented theoretical derivations are supplementary rather than fundamental. Additionally, upon review, we also noticed that the accused proof is inconsistent with TCD raw hypothesis. Hence, we have provided a rigorous proof of our theoretical aspects within the framework of our study, which is predicated upon DPMSolver and DEIS. We also provide the proof in the email.
    
 3. CTM and TCD are different from motivation, method to experiments. The experimental results also cannot be obtained from any type of CTM algorithm.
    
