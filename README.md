@@ -411,7 +411,7 @@ python gradio_app.py
 
 We provided a colob demo for Text-to-Image generation with TCD-LoRA.
 
-## Related and Concurrent Materials
+## Related and Concurrent Works
 - Luo S, Tan Y, Huang L, et al. Latent consistency models: Synthesizing high-resolution images with few-step inference. arXiv preprint arXiv:2310.04378, 2023.
 - Luo S, Tan Y, Patil S, et al. LCM-LoRA: A universal stable-diffusion acceleration module. arXiv preprint arXiv:2311.05556, 2023.
 - Lu C, Zhou Y, Bao F, et al. DPM-Solver: A fast ode solver for diffusion probabilistic model sampling in around 10 steps. Advances in Neural Information Processing Systems, 2022, 35: 5775-5787.
