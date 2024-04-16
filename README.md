@@ -23,20 +23,22 @@ We shall proceed to elucidate the situation here.
 1. In the [first arXiv version](https://arxiv.org/abs/2402.19159v1), we have provided citations and discussion in A. Related Works:
     > Kim et al. (2023) proposes a universal framework for CMs and DMs. The core design is similar to ours, with the main differences being that we focus on reducing error in CMs, subtly leverage the semi-linear structure of the PF ODE for parameterization, and avoid the need for adversarial training. 
 
-3. In the [first arXiv version](https://arxiv.org/abs/2402.19159v1), we have indicated in D.3 Proof of Theorem 4.2
+2. In the [first arXiv version](https://arxiv.org/abs/2402.19159v1), we have indicated in D.3 Proof of Theorem 4.2
     > In this section, our derivation mainly borrows the proof from (Kim et al., 2023; Chen et al., 2022).
     
-    and have never intended to claim credits.
+    and we have never intended to claim credits.
     
-    As we have mentioned in our email, we would like to extend a formal apology to the CTM authors for the clearly inadequate level of referencing in our paper. We will provide more credits in the revised manuscript. Moreover, the first version of the manuscript is only preprint will not be featured in any peer-reviewed conference proceedings.
+    As we have mentioned in our email, we would like to extend a formal apology to the CTM authors for the clearly inadequate level of referencing in our paper. We will provide more credits in the revised manuscript.
 
-5. In the updated [second arXiv version](https://arxiv.org/abs/2402.19159v2), we have expanded our discussion to elucidate the relationship with the CTM framework. Additionally, we have eliminated some proofs that were previously included for completeness, refining the content for better focus and avoiding potential misunderstandings.
+3. In the updated [second arXiv version](https://arxiv.org/abs/2402.19159v2), we have expanded our discussion to elucidate the relationship with the CTM framework. Additionally, we have removed some proofs that were previously included for completeness.
 
-6. CTM and TCD are different from motivation, method to experiments. The experimental results also cannot be obtained from any type of CTM algorithm.
+4. CTM and TCD are different from motivation, method to experiments. TCD is founded on the principles of the Latent Consistency Model (LCM), aimed to design an effective consistency function by utilizing the **exponential integrators**.
+  
+5. The experimental results also cannot be obtained from any type of CTM algorithm.
    
-   4.1 Here we provide a simple method to check: use our sampler here to sample the checkpoint [CTM released](https://github.com/sony/ctm), or vice versa.
+   5.1 Here we provide a simple method to check: use our sampler here to sample the checkpoint [CTM released](https://github.com/sony/ctm), or vice versa.
    
-   4.2 [CTM](https://github.com/sony/ctm) also provided training script. We welcome anyone to reproduce the experiments on SDXL based on CTM algorithm.
+   5.2 [CTM](https://github.com/sony/ctm) also provided training script. We welcome anyone to reproduce the experiments on SDXL or LDM based on CTM algorithm.
 
 We believe the assertion of plagiarism is not only severe but also detrimental to the academic integrity of the involved parties. 
 We earnestly hope that everyone involved gains a more comprehensive understanding of this matter.
@@ -409,7 +411,7 @@ python gradio_app.py
 
 We provided a colob demo for Text-to-Image generation with TCD-LoRA.
 
-## Related Materials
+## Related and Concurrent Materials
 - Luo S, Tan Y, Huang L, et al. Latent consistency models: Synthesizing high-resolution images with few-step inference. arXiv preprint arXiv:2310.04378, 2023.
 - Luo S, Tan Y, Patil S, et al. LCM-LoRA: A universal stable-diffusion acceleration module. arXiv preprint arXiv:2311.05556, 2023.
 - Lu C, Zhou Y, Bao F, et al. DPM-Solver: A fast ode solver for diffusion probabilistic model sampling in around 10 steps. Advances in Neural Information Processing Systems, 2022, 35: 5775-5787.
