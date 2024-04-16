@@ -21,14 +21,11 @@ We shall proceed to elucidate the situation here.
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">We regret to hear about the serious accusations from the CTM team <a href="https://twitter.com/gimdong58085414?ref_src=twsrc%5Etfw">@gimdong58085414</a>. I shall proceed to elucidate the situation and make an archive here. We already have several rounds of communication with CTM&#39;s authors. <a href="https://t.co/BKn3w1jXuh">https://t.co/BKn3w1jXuh</a></p>&mdash; Michael (@Merci0318) <a href="https://twitter.com/Merci0318/status/1772502247563559014?ref_src=twsrc%5Etfw">March 26, 2024</a></blockquote> 
 
 1. In the [first arXiv version](https://arxiv.org/abs/2402.19159v1), we have provided citations and discussion in A. Related Works:
-    <div style="font-style: italic; text-indent: 20px; padding-left: 30px; padding-right: 30px; border: 1px solid black;">
-                  Kim et al. (2023) proposes a universal framework for CMs and DMs. The core design is similar to ours, with the main differences being that we focus on reducing error in CMs, subtly leverage the semi-linear structure of the PF ODE for parameterization, and avoid the need for adversarial training. 
-    </div>
+    > Kim et al. (2023) proposes a universal framework for CMs and DMs. The core design is similar to ours, with the main differences being that we focus on reducing error in CMs, subtly leverage the semi-linear structure of the PF ODE for parameterization, and avoid the need for adversarial training. 
 
 3. In the [first arXiv version](https://arxiv.org/abs/2402.19159v1), we have indicated in D.3 Proof of Theorem 4.2
-    <div style="font-style: italic; text-indent: 20px; padding-left: 30px; padding-right: 30px; border: 1px solid black;">
-                    In this section, our derivation mainly borrows the proof from (Kim et al., 2023; Chen et al., 2022).
-    </div>
+    > In this section, our derivation mainly borrows the proof from (Kim et al., 2023; Chen et al., 2022).
+    
     and have never intended to claim credits.
     
     As we have mentioned in our email, we would like to extend a formal apology to the CTM authors for the clearly inadequate level of referencing in our paper. We will provide more credits in the revised manuscript. Moreover, the first version of the manuscript is only preprint will not be featured in any peer-reviewed conference proceedings.
@@ -434,3 +431,7 @@ We provided a colob demo for Text-to-Image generation with TCD-LoRA.
 
 ## Acknowledgments
 This codebase heavily relies on the 🤗[Diffusers](https://github.com/huggingface/diffusers) library and [LCM](https://github.com/luosiallen/latent-consistency-model).
+Additionally, we employ several finetuned models of Stable Diffusion from the community to evaluate the versatility of TCD, including [SDXL Inpainting Model](https://huggingface.co/diffusers/stable-diffusion-xl-1.0-inpainting-0.1), [Animagine XL](https://huggingface.co/cagliostrolab/animagine-xl-3.0), [Papercut LoRA](https://huggingface.co/TheLastBen/Papercut_SDXL), [Depth Controlnet](https://huggingface.co/diffusers/controlnet-depth-sdxl-1.0), [Canny Controlnet](https://huggingface.co/diffusers/controlnet-canny-sdxl-1.0), [IP-Adapter](https://github.com/tencent-ailab/IP-Adapter).
+We also thank [@hysts](https://huggingface.co/hysts) for creating Hugging Face Space and providing free GPU resources to launch our [online demo](https://huggingface.co/spaces/h1t/TCD).
+
+Thanks for their contributions!
