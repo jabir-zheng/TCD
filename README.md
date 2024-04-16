@@ -20,21 +20,29 @@ We shall proceed to elucidate the situation here.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">We regret to hear about the serious accusations from the CTM team <a href="https://twitter.com/gimdong58085414?ref_src=twsrc%5Etfw">@gimdong58085414</a>. I shall proceed to elucidate the situation and make an archive here. We already have several rounds of communication with CTM&#39;s authors. <a href="https://t.co/BKn3w1jXuh">https://t.co/BKn3w1jXuh</a></p>&mdash; Michael (@Merci0318) <a href="https://twitter.com/Merci0318/status/1772502247563559014?ref_src=twsrc%5Etfw">March 26, 2024</a></blockquote> 
 
-1. In our first arXiv pre-print, we have indicated "mainly borrows the proof from CTM" and have never intended to claim credits. As we have mentioned in our email, we would like to extend a formal apology to the CTM authors for the clearly inadequate level of referencing in our paper. We will provide more credits in the revised manuscript. Moreover, the current version of the manuscript is only preprint will not be featured in any peer-reviewed conference proceedings.
+1. In the [first arXiv version](https://arxiv.org/abs/2402.19159v1), we have provided citations and discussion in A. Related Works:
+    <div style="font-style: italic; text-indent: 20px; padding-left: 30px; padding-right: 30px; border: 1px solid black;">
+                  Kim et al. (2023) proposes a universal framework for CMs and DMs. The core design is similar to ours, with the main differences being that we focus on reducing error in CMs, subtly leverage the semi-linear structure of the PF ODE for parameterization, and avoid the need for adversarial training. 
+    </div>
 
-2. Furthermore, the sections under accusation bear no relation to the core contributions of TCD. The represented theoretical derivations are supplementary rather than fundamental. Additionally, upon review, we also noticed that the accused proof is inconsistent with TCD raw hypothesis. Hence, we have provided a rigorous proof of our theoretical aspects within the framework of our study, which is predicated upon DPMSolver and DEIS. We also provide the proof in the email.
+3. In the [first arXiv version](https://arxiv.org/abs/2402.19159v1), we have indicated in D.3 Proof of Theorem 4.2
+    <div style="font-style: italic; text-indent: 20px; padding-left: 30px; padding-right: 30px; border: 1px solid black;">
+                    In this section, our derivation mainly borrows the proof from (Kim et al., 2023; Chen et al., 2022).
+    </div>
+    and have never intended to claim credits.
+    
+    As we have mentioned in our email, we would like to extend a formal apology to the CTM authors for the clearly inadequate level of referencing in our paper. We will provide more credits in the revised manuscript. Moreover, the first version of the manuscript is only preprint will not be featured in any peer-reviewed conference proceedings.
+
+5. In the updated [second arXiv version](https://arxiv.org/abs/2402.19159v2), we have expanded our discussion to elucidate the relationship with the CTM framework. Additionally, we have eliminated some proofs that were previously included for completeness, refining the content for better focus and avoiding potential misunderstandings.
+
+6. CTM and TCD are different from motivation, method to experiments. The experimental results also cannot be obtained from any type of CTM algorithm.
    
-3. CTM and TCD are different from motivation, method to experiments. The experimental results also cannot be obtained from any type of CTM algorithm.
+   4.1 Here we provide a simple method to check: use our sampler here to sample the checkpoint [CTM released](https://github.com/sony/ctm), or vice versa.
    
-   3.1 Here we provide a simple method to check: use our sampler here to sample the checkpoint [CTM released](https://github.com/sony/ctm), or vice versa.
-   
-   3.2 [CTM](https://github.com/sony/ctm) also provided training script. We welcome anyone to reproduce the experiments on SDXL based on CTM algorithm.
+   4.2 [CTM](https://github.com/sony/ctm) also provided training script. We welcome anyone to reproduce the experiments on SDXL based on CTM algorithm.
 
 We believe the assertion of plagiarism is not only severe but also detrimental to the academic integrity of the involved parties. 
 We earnestly hope that everyone involved gains a more comprehensive understanding of this matter.
-
-All related docs can be found [here](https://drive.google.com/file/d/19c1QMfOMgp3McR4FCBk4pjdf22avyp8X/view).
-
 
 ## 📣 News
 - (🔥New) 2024/3/18 We have integrated the official [TCDScheduler](https://github.com/huggingface/diffusers/blob/main/src/diffusers/schedulers/scheduling_tcd.py) into the 🧨 Diffusers library! See the official documentation [here](https://huggingface.co/docs/diffusers/using-diffusers/inference_with_tcd_lora). Thanks for the Diffusers team!
@@ -403,6 +411,14 @@ python gradio_app.py
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jabir-zheng/TCD/blob/main/colab_demo_t2i.ipynb)
 
 We provided a colob demo for Text-to-Image generation with TCD-LoRA.
+
+## Related Materials
+- Luo S, Tan Y, Huang L, et al. Latent consistency models: Synthesizing high-resolution images with few-step inference. arXiv preprint arXiv:2310.04378, 2023.
+- Luo S, Tan Y, Patil S, et al. LCM-LoRA: A universal stable-diffusion acceleration module. arXiv preprint arXiv:2311.05556, 2023.
+- Lu C, Zhou Y, Bao F, et al. DPM-Solver: A fast ode solver for diffusion probabilistic model sampling in around 10 steps. Advances in Neural Information Processing Systems, 2022, 35: 5775-5787.
+- Lu C, Zhou Y, Bao F, et al. DPM-solver++: Fast solver for guided sampling of diffusion probabilistic models. arXiv preprint arXiv:2211.01095, 2022.
+- Zhang Q, Chen Y. Fast sampling of diffusion models with exponential integrator. ICLR 2023, Kigali, Rwanda, May 1-5, 2023.
+- Kim D, Lai C H, Liao W H, et al. Consistency Trajectory Models: Learning Probability Flow ODE Trajectory of Diffusion. ICLR 2024.
 
 ## Citation
 ```bibtex
