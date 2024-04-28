@@ -44,7 +44,7 @@ We believe the assertion of plagiarism is not only severe but also detrimental t
 We earnestly hope that everyone involved gains a more comprehensive understanding of this matter.
 
 ## 📣 News
-- (🔥New) 2024/3/28 A ComfyUI plugin [ComfyUI-TCD](https://github.com/JettHu/ComfyUI-TCD). Thanks @JettHu and @dfl. 
+- (🔥New) 2024/3/28 A ComfyUI plugin [ComfyUI-TCD](https://github.com/JettHu/ComfyUI-TCD). Thanks [@JettHu](https://github.com/JettHu) and [@dfl](https://github.com/dfl). 
 - (🔥New) 2024/3/18 We have integrated the official [TCDScheduler](https://github.com/huggingface/diffusers/blob/main/src/diffusers/schedulers/scheduling_tcd.py) into the 🧨 Diffusers library! See the official documentation [here](https://huggingface.co/docs/diffusers/using-diffusers/inference_with_tcd_lora). Thanks for the Diffusers team!
 - (🔥New) 2024/3/11 We released [TCD-SD15-LoRA](https://huggingface.co/h1t/TCD-SD15-LoRA) for SDv1.5, and [TCD-SD21-base-LoRA](https://huggingface.co/h1t/TCD-SD21-base-LoRA) for SDv2.1-base.
 - (🔥New) 2024/2/29 We provided a demo of TCD on 🤗 Hugging Face Space. Try it out [here](https://huggingface.co/spaces/h1t/TCD).
